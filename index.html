@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarah-Website</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+<div id="intro-screen">
+  <canvas id="heartCanvas" width="400" height="400"></canvas>
+  <p id="click-message" style="display: none;">Klicke auf das Herz!</p>
+</div>
+<div id="main-content" style="display: none;">
+
+  <div id="word-puzzle-container">
+    <h2>Liebesbotschaft entschlüsseln</h2>
+    <div id="scrambled-letters"></div>
+    <button id="check-solution">Überprüfen</button>
+    <p id="result-message"></p>
+  </div>
+
+  <div id="floating-hearts-container"></div>
+
+  <div id="carousel-button">
+    <button id="open-carousel">Galerie öffnen</button>
+  </div>
+  <div id="carousel-modal" class="hidden">
+    <div id="carousel-content">
+      <div id="carousel-slider">
+        <div class="carousel-slide"><img src="https://www.dropbox.com/scl/fi/v0xmi9c0gqvryzktaw1rg/652ebc6f_2024-01-19_21-22-08.jpg?rlkey=0d6bp1s1arv800138oeoznuk2&st=3gybamky&dl=1" alt="Image 1"></div>
+        <div class="carousel-slide"><img src="https://www.dropbox.com/scl/fi/mhs2kn7wy0u4afy6d5kdv/Img_2024_11_28_19_10_08-2.jpeg?rlkey=0z3tdkantrdgqu88fe0i9cs9v&st=fywwcymy&dl=1" alt="Image 2"></div>
+        <div class="carousel-slide"><img src="https://www.dropbox.com/scl/fi/osrn62q5fp0su6jp9fv8b/PXL_20240113_192038122.jpg?rlkey=ep9mwwbk0cxi0beffr6a5sl9z&st=poi44dvg&dl=1" alt="Image 3"></div>
+        <div class="carousel-slide"><img src="https://www.dropbox.com/scl/fi/yb5zrppunudw88dluqdrn/PXL_20240212_152403376.jpg?rlkey=n7tq85n7q6wkgqcufr0wu24wm&st=13omtn48&dl=1" alt="Image 4"></div>
+        <div class="carousel-slide"><img src="https://www.dropbox.com/scl/fi/9kkohm260226xvx2x3149/PXL_20240311_191136379.jpg?rlkey=3euoyfdwnecq6gxiaa6wehe9y&st=v7t7wjpr&dl=1" alt="Image 5"></div>
+        <div class="carousel-slide"><img src="https://www.dropbox.com/scl/fi/7gg50xhdr3lbsw7mq3olq/PXL_20240330_152202625.jpg?rlkey=deiz3urdfes8d500n7n5yhkn9&st=f1cpaok8&dl=1" alt="Image 6"></div>
+        <div class="carousel-slide"><img src="https://www.dropbox.com/scl/fi/m2y1yu4rb0acjimstuvpa/PXL_20240330_153821170.jpg?rlkey=bdk7lbcozy4zyxgrjwd4ku928&st=b3pqxv4f&dl=1" alt="Image 7"></div>
+        <div class="carousel-slide"><img src="https://www.dropbox.com/scl/fi/fjz1v7nm5qvhuj49jmope/PXL_20240427_133847295.jpg?rlkey=mfs5wcjm04285wwosjyw7gc86&st=g9x3b8ek&dl=1" alt="Image 8"></div>
+        <div class="carousel-slide"><img src="https://www.dropbox.com/scl/fi/qzm461z2l7yi9ouc60gak/PXL_20240711_130203897.MP.jpg?rlkey=8dm9mfl4w9m11q8af9pq9takq&st=ld4pafz0&dl=1" alt="Image 9"></div>
+        <div class="carousel-slide"><img src="https://www.dropbox.com/scl/fi/3agwk8smulfj8zlgn4nhl/PXL_20241019_153858715.MP.jpg?rlkey=ta0j5wlzjw84832gd0rpxycx9&st=5eolnccp&dl=1" alt="Image 10"></div>
+        <div class="carousel-slide"><img src="https://www.dropbox.com/scl/fi/2yb22rilbw6bz3nx7ylos/PXL_20241019_161152731.jpg?rlkey=v4fhbqhg6dbco4wkdro6s2kv0&st=db3m0wl0&dl=1" alt="Image 11"></div>
+        <div class="carousel-slide"><img src="https://www.dropbox.com/scl/fi/johfw8afzjvw2i9ur4ezr/Snapchat-23126879.jpg?rlkey=854atuklvvjbab1jj8ziennum&st=lnsmy5pp&dl=1" alt="Image 12"></div>
+        <div class="carousel-slide"><img src="https://www.dropbox.com/scl/fi/2hn22mw9g80f9c1uxixc2/Snapchat-1188588016.jpg?rlkey=joio16xxyalibyqnshv9vus6l&st=dtp8c3d8&dl=1" alt="Image 13"></div>
+        <div class="carousel-slide"><img src="https://www.dropbox.com/scl/fi/3esg5yi8q9d7uk8ozm8lq/Snapchat-1387717922.jpg?rlkey=q8ah8bew4qrqe8nowdwauqwxg&st=hf4mdx79&dl=1" alt="Image 14"></div>
+        <div class="carousel-slide"><img src="https://www.dropbox.com/scl/fi/qk9k9ncg9hsp0k254ir9n/Snapchat-1530878080.jpg?rlkey=yjkx03r4q6fxp3650onkacf6m&st=jhn524ly&dl=1" alt="Image 15"></div>
+
+      </div>
+      <button id="prev-slide" class="nav-button">❮</button>
+      <button id="next-slide" class="nav-button">❯</button>
+    </div>
+  </div>
+
+  <div id="memory-game-container">
+    <p id="memory-game-message">Memory:</p>
+    <div id="memory-game">
+    </div>
+    <button id="restart-game" class="hidden">Neustart</button>
+  </div>
+
+  <h1>Ich liebe dich Sarah!</h1>
+  <p>Diese kleine Website soll dir zeigen, wie viel du mir bedeutest. Probier alles aus und klick dich durch.</p>
+  <p>(Für die Bilder im Memory entschuldige ich mich jetzt schon mal)</p>
+  <div class="timer-container">
+    <h3>Wir sind schon zusammen seit:</h3>
+    <div id="timer" class="animated-timer">
+      <div class="timer-box">
+        <div class="timer-value" id="days"></div>
+        <div class="timer-label">Tage</div>
+      </div>
+      <div class="timer-box">
+        <div class="timer-value" id="hours"></div>
+        <div class="timer-label">Stunden</div>
+      </div>
+      <div class="timer-box">
+        <div class="timer-value" id="minutes"></div>
+        <div class="timer-label">Minuten</div>
+      </div>
+      <div class="timer-box">
+        <div class="timer-value" id="seconds"></div>
+        <div class="timer-label">Sekunden</div>
+      </div>
+    </div>
+  </div>
+  <div class="interactive-area">
+    <div class="quiz-container">
+      <h3>Wie gut kennst du uns?</h3>
+      <div id="quiz">
+        <div class="quiz-question" id="question1">
+          <p>Wann sind wir zusammen gekommen?</p>
+          <button onclick="checkAnswer('question1', true)">13. Jänner 2024</button>
+          <button onclick="checkAnswer('question1', false)">14. Jänner 2024</button>
+        </div>
+        <div class="quiz-question" id="question2" style="display: none;">
+          <p>Wo haben wir uns das erste mal geküsst?"?</p>
+          <button onclick="checkAnswer('question2', true)">Pleschinger See</button>
+          <button onclick="checkAnswer('question2', false)">Sandburg</button>
+        </div>
+        <div class="quiz-question" id="question3" style="display: none;">
+          <p>Wo hängt unser Schloss zum Halbjährigen (hoffentlich noch immer)?</p>
+          <button onclick="checkAnswer('question3', false)">Prager Burg</button>
+          <button onclick="checkAnswer('question3', true)">Karlsbrücke</button>
+        </div>
+        <div class="quiz-question" id="question4" style="display: none;">
+          <p>Wann haben wir uns das erste mal gesehen"?</p>
+          <button onclick="checkAnswer('question4', true)">13. August 2023</button>
+          <button onclick="checkAnswer('question4', false)">28. Juli 2023</button>
+        </div>
+        <div class="quiz-question" id="question5" style="display: none;">
+          <p>Wo haben wir unseren Silvesterkuss 2025?</p>
+          <button onclick="checkAnswer('question5', true)">London</button>
+          <button onclick="checkAnswer('question5', true)">London</button>
+        </div>
+      </div>
+      <p id="quiz-result" style="display: none;"></p>
+      <button id="retry-button" style="display: none;" onclick="retryQuiz()">Nochmal versuchen</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
